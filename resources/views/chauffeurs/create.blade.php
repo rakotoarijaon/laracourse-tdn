@@ -20,8 +20,10 @@
   </div>
 @endsection
 @section('body')
-    <!-- Main row -->
+<!-- Form -->
 
+<!-- Endform -->
+    <!-- Main row -->
     <div class="row">
       <section class="form my-4 mx-0">
         <div class="container">

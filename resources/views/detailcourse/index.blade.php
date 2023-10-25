@@ -29,55 +29,85 @@
        </div>
      </div>
    @endif
-   <hr>
-   <h1 >Ajout detail</h1>
-<div class="row">
-  <form action="{{route('detail.store')}}" method="POST">
-    @csrf
-    <div class="form-row">
-        <div class="form-group col-md-2">
-            <label>Course</label>
-              <select class="form-control" name="course_id" >
-                <option value="{{$course->id}}"> {{$course->id}}</option>
-              </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label >Lieu</label>
-              <input type="text"  placeholder="Lieu" name="lieu" class="form-control">
+   <!---->
+   <!--form-->
+   <div class="container">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Ajout details</h3>
+                </div>
+                <form role="form" action="{{route('detail.store')}}" method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label for="champ1">Course</label>
+                                    <input type="text" class="form-control" id="champ2" name="course_id" value="{{$course->id}}" aria-label="Disabled input example" disabled>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ2">Lieu</label>
+                                    <input type="text" class="form-control" id="champ2" placeholder="Lieu" name="lieu">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ3">Responsable</label>
+                                    <select class="form-select" aria-label="Default select example" name="responsable_id">
+                                        <option selected>Choisir</option>
+                                        @foreach ($responsable as $responsables)
+                                              <option value="{{$responsables->id}}">{{$responsables->responsable_prenom}}</option>
+                                          @endforeach
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ4">Motif</label>
+                                    <input type="text" class="form-control" id="champ4" placeholder="motif" name="motif">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ5">Date et Heure </label>
+                                    <input type="datetime-local" class="form-control" id="champ5" placeholder="date et heure" name="date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ6">Date et Heure d'arriver</label>
+                                    <input type="datetime-local" class="form-control" id="champ6" placeholder="Votre arriver" name="dateheurearriver">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Valider</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
         </div>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-2">
-            <label for="inputState">Responsable</label>
-              <select class="form-control mt-1" name="responsable_id">
-                <option>---------</option>
-                  @foreach ($responsable as $responsables)
-                      <option value="{{$responsables->id}}">{{$responsables->responsable_prenom}}</option>
-                  @endforeach
-            </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label>Motif</label>
-              <input type="text"  placeholder="motif" name="motif" class="form-control">
-        </div>
-    </div>
-    <div class="form row">
-        <div class="form-group col-md-2">
-            <label >Date et heure</label>
-              <input type="datetime-local"  placeholder="date et heure" name="date" class="form-control">
-        </div>
-        <div class="form-group col-md-2">
-            <label>Date arriver</label>
-            <input type="datetime-local"  placeholder="Votre arriver" name="dateheurearriver" class="form-control">
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Valider</button>
-  </form>
 </div>
-<hr>
-<div class="row">
-  <h1>Course Detail</h1>
-</div>
+<!--end form-->
+<!--Titre-->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Details</h3>
+        </div>
+    </div>
+<!--endTitre-->
 <div class="row">
   <table id="example" class="table table-striped" style="width:100%">
     <thead>

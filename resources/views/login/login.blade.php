@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <p ><b>Admin</b>COURSE</p>
+        <p ><b>G-</b>COURSE</p>
       </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -80,7 +80,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Connect</button>
+            <button type="submit" class="btn btn-primary btn-block">Connecter</button>
           </div>
           <!-- /.col -->
         </div>

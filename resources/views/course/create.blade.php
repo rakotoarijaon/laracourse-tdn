@@ -20,74 +20,78 @@
   </div>
 @endsection
 @section('body')
-    <!-- Main row -->
+<!--form-->
+<div class="container">
+    <a href="{{route('course.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
     <div class="row">
-      <section class="form my-4 mx-0">
-        <div class="container">
-          <a href="{{route('course.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
-          <div class="row no-gutters">
-            <div class="col-lg-4">
-
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h1 class="card-title">Course-Ajout</h1>
                 </div>
-            <div class="col-lg-7 px-5 pt-5">
-            <!--logo-->
-                <h1 class="font-weight-bold py-3">Course</h1>
-               <!--endlogo-->
-                  <!--form-->
-                    <form action="{{route('course.store')}}" method="POST">
-                        @csrf
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <label class="label">Chauffeur</label>
-                            <select class="form-control mt-1" name="chauffeur_id">
-                              <option >---------</option>
-                                  @foreach ($chauffeur as $chauffeurs)
-                              <option value="{{$chauffeurs->id}}">{{$chauffeurs->chaffeur_nom}} </option>
-                                  @endforeach
-                            </select>
+                <form role="form" action="{{route('course.store')}}" method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ1">Chauffeur</label>
+                                      <select class="form-select" aria-label="Default select example" name="chauffeur_id">
+                                        <option selected>Choisir</option>
+                                        @foreach ($chauffeur as $chauffeurs)
+                                            <option value="{{$chauffeurs->id}}">{{$chauffeurs->chaffeur_nom}} </option>
+                                        @endforeach
+                                      </select>
+                                      <span class="text-danger">
+                                        @error('chauffeur_id')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="text-danger">
-                          @error('chauffeur_id')
-                            {{$message}}
-                          @enderror
-                        </span>
-                        <div class="col-lg-6">
-                          <label class="label">Voiture</label>
-                            <select class="form-control mt-1" name="voiture_id">
-                              <option>---------</option>
-                                  @foreach ($voiture as $voitures)
-                                    <option value="{{ $voitures->id }}">{{ $voitures->voiture_numero }}</option>
-                                  @endforeach
-                            </select>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ2">Voiture</label>
+                                    <select select class="form-select" aria-label="Default select example" name="voiture_id">
+                                        <option>Choisir</option>
+                                            @foreach ($voiture as $voitures)
+                                              <option value="{{ $voitures->id }}">{{ $voitures->voiture_numero }}</option>
+                                            @endforeach
+                                      </select>
+                                      <span class="text-danger">
+                                        @error('voiture_id')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
                         </div>
-                        <span class="text-danger">
-                          @error('voiture_id')
-                            {{$message}}
-                          @enderror
-                        </span>
-                      </div>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <label  class="label">date et heure de depart</label>
-                            <input type="datetime-local" class="form-control my-3" name="course_dateheuredepart">
+                        <div class="row">
+                              <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ3">Date et Heure de depart</label>
+                                    <input type="datetime-local" class="form-control" id="champ3" name="course_dateheuredepart">
+                                    <span class="text-danger">
+                                        @error('course_dateheuredepart')
+                                          {{$message}}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <span class="text-danger">
-                        @error('course_dateheuredepart')
-                          {{$message}}
-                        @enderror
-                    </span>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <button type="submit" class="btn1 mt-3 mb-5">Ajouter</button>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
                         </div>
-                      </div>
-                    </form>
-                  <!--endform-->
+                </form>
             </div>
-          </div>
         </div>
-      </section>
     </div>
-    <!-- /.row (main row) -->
+</div>
+
+<!--endform-->
+
 @endsection

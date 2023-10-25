@@ -20,7 +20,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <p><b>Admin</b>COURSE</p>
+    <p><b>G-</b>COURSE</p>
   </div>
   <div class="card">
     <div class="card-body register-card-body">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Course</title>
+  <title>G- Course</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -69,15 +69,15 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <p class="brand-link">
-      <img src="{{asset('admin-asset/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin Course</span>
+      <img src="{{asset('admin-asset/dist/img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">G - COURSE</span>
     </p>
     <!-- Sidebar -->
     <div class="sidebar ">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <!--<img   src="{{asset('admin-asset/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">--><i class="fa-solid fa-circle-user ml-10 fa-2x" style="color: hsl(160, 24%, 93%)"></i><i class="fa-solid fa-circle ml-10" style="color: #16825D " style="padding-left: -10px"></i>
+          <img   src="{{asset('admin-asset/dist/img/utilisateur.jpg')}}" class="img-circle elevation-2" alt="User Image"><i class="fa-solid fa-circle ml-10" style="color: #16825D " style="padding-left: -20px"></i>
         </div>
         <div class="info">
           <a href="{{route('login.profil')}}" class="d-block">{{$LoggedUserInfo['name']}}</a>
