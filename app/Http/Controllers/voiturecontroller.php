@@ -39,6 +39,7 @@ class voiturecontroller extends Controller
             'voiture_type'=>'required',
         ],[
             'voiture_numero.max'=> 'Ce champs doit contenir 10 caracteres',
+            'voiture_type.required'=> 'Entrer le type de votre voiture',
         ]);
 
      Voiture::create($request->post());

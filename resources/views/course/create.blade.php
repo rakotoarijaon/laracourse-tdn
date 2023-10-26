@@ -35,8 +35,8 @@
                             <div class="col-md-12 text-center">
                                 <div class="form-group">
                                     <label for="champ1">Chauffeur</label>
-                                      <select class="form-select" aria-label="Default select example" name="chauffeur_id">
-                                        <option selected>Choisir</option>
+                                      <select class="form-select" aria-label="Default select example" name="chauffeur_id" >
+                                        <option selected >Choisir</option>
                                         @foreach ($chauffeur as $chauffeurs)
                                             <option value="{{$chauffeurs->id}}">{{$chauffeurs->chaffeur_nom}} </option>
                                         @endforeach

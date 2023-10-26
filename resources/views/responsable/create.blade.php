@@ -21,87 +21,99 @@
   <!-- /.content-header -->
 @endsection
 @section('body')
-    <!-- Main row -->
-
+<!--form-->
+<div class="container">
+<a href="{{route('responsable.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
     <div class="row">
-      <section class="form my-4 mx-0s">
-        <div class="container">
-          <a href="{{route('responsable.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
-          <div class="row no-gutters">
-            <div class="col-lg-4">
+        <div class="col-md-7 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Ajouter une Responsable</h3>
+                </div>
+                <form role="form" action="{{route('responsable.store')}}" method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label for="champ1">Numero Matricule</label>
+                                    <input type="text" class="form-control" id="champ2" name="responsable_matricule" placeholder="Numero Matricule">
+                                    <span class="text-danger">
+                                        @error('responsable_matricule')
+                                          {{$message}}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ2">Nom </label>
+                                    <input type="text" class="form-control" id="champ2" placeholder="Votre nom" name="responsable_nom">
+                                    <span class="text-danger">
+                                        @error('responsable_nom')
+                                          {{$message}}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ2">Prenom </label>
+                                    <input type="text" class="form-control" id="champ2" placeholder="Votre prénom(s)" name="responsable_prenom">
+                                    <span class="text-danger">
+                                        @error('responsable_prenom')
+                                          {{$message}}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="champ1">Service</label>
+                                    <select class="form-select" aria-label="Default select example" name="service_id" >
+                                      <option selected >Choisir</option>
+                                      @foreach ($service as $services)
+                                          <option value="{{ $services->id }}" > {{ $services->service_nom }} </option>
+                                       @endforeach
+                                    </select>
+                                    <span class="text-danger">
+                                      @error('service_id')
+                                        {{$message}}
+                                      @enderror
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="champ1">Fonction</label>
+                                    <select class="form-select" aria-label="Default select example" name="fonction_id" >
+                                      <option selected >Choisir</option>
+                                        @foreach ($fonction as $fonctions)
+                                            <option value="{{ $fonctions->id }}">{{ $fonctions->fonction_nom }} </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger">
+                                      @error('fonction_id')
+                                        {{$message}}
+                                      @enderror
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
+                        </div>
 
+                </form>
             </div>
-            <div class="col-lg-7 px-5 pt-5">
-            <!--logo-->
-                <h1 class="font-weight-bold py-3">Responsable</h1>
-            <!--endlogo-->
-            <!--form-->
-              <form action="{{route('responsable.store')}}" method="POST">
-                @csrf
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label  class="label">Responsable matricule</label>
-                    <input type="text"  placeholder="Votre matricule" class="form-control my-3  " name="responsable_matricule">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label  class="label">Responsable Nom</label>
-                    <input type="text"  placeholder="Votre nom" name="responsable_nom" class="form-control">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label  class="label"> Responsable Prenom</label>
-                    <input type="text"  placeholder="Votre prénom" name="responsable_prenom" class="form-control">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label for="" class="label">service</label>
-                    <select class="form-control mt-1" name="service_id">
-                      <option type="hidden">------</option>
-                        @foreach ($service as $services)
-                        <option value="{{ $services->id }}" > {{ $services->service_nom }} </option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label for="" class="label">Fonction</label>
-                    <select class="form-control mt-1" name="fonction_id">
-                      <option >---------</option>
-                         @foreach ($fonction as $fonctions)
-                         <option value="{{ $fonctions->id }}">{{ $fonctions->fonction_nom }} </option>
-                       @endforeach
-                     </select>
-                  </div>
-                </div>
-
-                <!--
-                  <div class="form-row">
-                  <div class="col-lg-7">
-                    <label for="" class="label">choisir id</label>
-                    <select name="" id="" class="form-control mt-1">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select>
-                  </div>
-                </div>
-              -->
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <button type="submit" class="btn1 mt-3 mb-5">Ajouter</button>
-                  </div>
-                </div>
-              </form>
-              <!--endform-->
-
-            </div>
-          </div>
         </div>
-      </section>
     </div>
-    <!-- /.row (main row) -->
+</div>
+<!--end form-->
 @endsection

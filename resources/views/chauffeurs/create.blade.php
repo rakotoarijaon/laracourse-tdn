@@ -1,4 +1,4 @@
-@extends('creation')
+@extends('indexation')
 @extends('main-layout')
 @section('content-header')
 <div class="content-header">
@@ -20,48 +20,53 @@
   </div>
 @endsection
 @section('body')
-<!-- Form -->
-
-<!-- Endform -->
-    <!-- Main row -->
+<!--form-->
+<div class="container">
+    <a href="{{route('chauffeur.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
     <div class="row">
-      <section class="form my-4 mx-0">
-        <div class="container">
-          <a href="{{route('chauffeur.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
-          <div class="row no-gutters">
-            <div class="col-lg-5">
-              <img src="{{asset('images/handsome-man-driving-his-car (1).jpg')}}" class="img-fluid" alt="">
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h1 class="card-title">Ajouter une Chauffeur</h1>
+                </div>
+                <form role="form" action="{{route('chauffeur.store')}}" method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ5">Nom</label>
+                                    <input type="text" class="form-control" id="champ5" name="chaffeur_nom" placeholder="Saisir le nom">
+                                      <span class="text-danger">
+                                        @error('chaffeur_nom')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ5">Adresse</label>
+                                    <input type="text" class="form-control" id="champ5" name="chauffeur_adresse"  placeholder="Saisir l'Adresse">
+                                      <span class="text-danger">
+                                        @error('chauffeur_adresse')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
+                        </div>
+                </form>
             </div>
-            <div class="col-lg-7 px-5 pt-5">
-            <!--logo-->
-                <h1 class="font-weight-bold py-3">Chauffeur</h1>
-            <!--endlogo-->
-            <!--form-->
-              <form action="{{route('chauffeur.store')}}" method="POST">
-                @csrf
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label class="label">Nom</label>
-                    <input type="text" name="chaffeur_nom" placeholder="Nom" class="form-control my-3  ">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label class="label">Adresse</label>
-                    <input type="text" name="chauffeur_adresse"  placeholder="LOT--" class="form-control">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <button type="submit" class="btn1 mt-3 mb-5">Ajouter</button>
-                  </div>
-                </div>
-              </form>
-              <!--endform-->
-            </div>
-          </div>
         </div>
-      </section>
     </div>
-    <!-- /.row (main row) -->
+</div>
+<!--endform-->
 @endsection

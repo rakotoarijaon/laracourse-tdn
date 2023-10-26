@@ -99,8 +99,7 @@ class coursecontroller extends Controller
         ],[
             'chauffeur_id.required'=>'remplir le champs',
             'voiture_id.required'=>'remplir le champs',
-            'course_dateheuredepart.required'=>'inserer le date de depart',
-            'course_dateheurearrive.required'=>'inserer le date d\'arriver'
+            'course_dateheuredepart.required'=>'inserer la date de depart'
         ]);
 
         Course::whereId($id)->update($validated);
