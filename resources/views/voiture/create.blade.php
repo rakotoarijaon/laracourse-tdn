@@ -20,45 +20,53 @@
   </div>
 @endsection
 @section('body')
-    <!-- Main row -->
+<!--form-->
+<div class="container">
+    <a href="{{route('voiture.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
     <div class="row">
-      <section class="form my-4 mx-0">
-        <div class="container">
-          <a href="{{route('voiture.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
-            <div class="row no-gutters">
-              <div class="col-lg-5">
-                <img src="{{asset('images/66815.jpg')}}" class="img-fluid" alt="">
-                  </div>
-                      <div class="col-lg-7 px-5 pt-5">
-                      <!--logo-->
-                          <h1 class="font-weight-bold py-3">voiture</h1>
-                      <!--endlogo-->
-                      <!--form-->
-                        <form action="{{route('voiture.store')}}" method="POST">
-                          @csrf
-                          <div class="form-row">
-                            <div class="col-lg-7">
-                              <label class="label">Numero</label>
-                              <input type="text" name="voiture_numero" placeholder="numero" class="form-control my-3  ">
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col-lg-7">
-                              <label class="label">Type</label>
-                              <input type="text" name="voiture_type" placeholder="type" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col-lg-7">
-                              <button type="submit" class="btn1 mt-3 mb-5">Ajouter</button>
-                            </div>
-                          </div>
-                      </form>
-                        <!--endform-->
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h1 class="card-title">Ajouter une Chauffeur</h1>
                 </div>
-              </div>
-          </div>
-        </section>
+                <form role="form" action="{{route('voiture.store')}}" method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ5">Numero</label>
+                                    <input type="text" class="form-control" id="champ5" name="voiture_numero" placeholder="Saisisser la numero de voiture">
+                                      <span class="text-danger">
+                                        @error('voiture_numero')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ5">Type</label>
+                                    <input type="text" class="form-control" id="champ5" name="voiture_type" placeholder="Type de cette voiture">
+                                      <span class="text-danger">
+                                        @error('voiture_type')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <!-- /.row (main row) -->
+</div>
+<!--endform-->
 @endsection

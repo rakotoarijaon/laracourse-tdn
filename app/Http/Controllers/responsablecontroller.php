@@ -48,9 +48,13 @@ class responsablecontroller extends Controller
         ],[
             'responsable_matricule.required'=>'Ce champ ne doit pas être vide',
             'responsable_matricule.max'=>' ce champ doit contenir au maximum que 10 caractere',
+            'responsable_nom.required'=>'Entrer votre nom',
+            'responsable_nom.max'=>'Ce champs doit contenir au maximun 50 lettres',
+            'responsable_prenom.required'=>'Entrer votre prenoms',
+            'responsable_prenom.max'=>'Ce champs doit contenir au maximun 50 lettres',
         ]);
         Responsable::create($request->post());
-        return redirect()->route('responsable.index')->with('success','succés');
+        return redirect()->route('responsable.index')->with('success','Ajout avec succés');
 
     }
 
@@ -93,7 +97,7 @@ class responsablecontroller extends Controller
             'fonction_id'=>'required',
         ]);
         Responsable::whereId($id)->update($validateresponsable);
-        return redirect()->route('responsable.index')->with('success','succés');
+        return redirect()->route('responsable.index')->with('success',' Modification avec succés');
     }
 
     /**
@@ -104,6 +108,6 @@ class responsablecontroller extends Controller
         //
         $responsable = Responsable::findOrfail($id);
         $responsable->delete();
-        return redirect()->route('responsable.index')->with('success','succés');
+        return redirect()->route('responsable.index')->with('success',' Suppression avec succés');
     }
 }

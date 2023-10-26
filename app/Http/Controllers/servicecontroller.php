@@ -36,6 +36,9 @@ class servicecontroller extends Controller
         //
         $request ->validate([
             'service_nom'=>'required|max:50',
+        ],[
+            'service_nom.required'=>'Entrer le nom de la Service',
+            'service_nom.max'=>'Ce champs doit contenir au maximum 50 lettres'
         ]);
         Service::create($request->post());
         return redirect()->route('service.index')->with('success',' Ajout avec succée');

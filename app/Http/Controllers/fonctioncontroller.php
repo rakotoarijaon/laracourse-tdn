@@ -37,6 +37,9 @@ class fonctioncontroller extends Controller
         //
         $request->validate([
             'fonction_nom'=>'required|max:50',
+        ],[
+            'fonction_nom.required'=>'Entrer le nom de la fonction',
+            'fonction_nom.max'=>'Ce champs doit contenir au maximum 50 lettres'
         ]);
         Fonction::create($request->post());
         return redirect()->route('fonction.index')->with('success',  'Ajout avec succée');

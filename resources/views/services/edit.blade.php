@@ -20,42 +20,42 @@
   </div>
 @endsection
 @section('body')
-    <!-- Main row -->
+<!--form-->
+<div class="container">
+    <a href="{{route('service.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
     <div class="row">
-      <section class="form my-4 mx-0">
-        <div class="container">
-          <a href="{{route('service.index')}}"><i class="fa-solid fa-arrow-left fa-2x icons"></i></a>
-            <div class="row no-gutters">
-              <div class="col-lg-5">
-                <img src="{{asset('images/28521.jpg')}}" class="img-fluid" alt="">
-              </div>
-            </div>
-            <div class="col-lg-5 px-5 pt-5">
-            <!--logo-->
-                <h1 class="font-weight-bold py-3">Service</h1>
-            <!--endlogo-->
-            <!--form-->
-              <form action="{{route('service.update',$service->id)}}" method="POST">
-                  @csrf
-                  @method('PATCH')
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <label  class="label">Nom du service</label>
-                    <input type="text" name="service_nom" placeholder="Nom" class="form-control my-3  " value="{{$service->service_nom}}">
-                  </div>
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h1 class="card-title">Modifier cette Service</h1>
                 </div>
-                <div class="form-row">
-                  <div class="col-lg-7">
-                    <button type="submit" class="btn1 mt-3 mb-5">Modifier</button>
-                  </div>
-                </div>
-              </form>
-              <!--endform-->
+                <form role="form" action="{{route('service.update',$service->id)}}" method="POST">
+                    @csrf
+                    @method('PATCH')
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <label for="champ5">Nom du Service</label>
+                                    <input type="text" class="form-control" id="champ5"  name="service_nom" placeholder="Nom de Votre Service" value="{{$service->service_nom}}">
+                                      <span class="text-danger">
+                                        @error('service_nom')
+                                          {{$message}}
+                                        @enderror
+                                      </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+                            </div>
+                        </div>
+                </form>
             </div>
-          </div>
         </div>
-      </section>
     </div>
-    <!-- /.row (main row) -->
+</div>
+<!--endform-->
 @endsection
 
